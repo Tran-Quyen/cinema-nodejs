@@ -2,12 +2,12 @@ const { LichChieu } = require("../models/LichChieu.model");
 const { Movie } = require("../models/Movie.model");
 
 const getAll = (req, res, next) => {
-
+// OK
   return LichChieu.find()
-      .populate('movie')
-    .then((test) => {
-        console.log(test.movie);
-      res.status(200).json(test);
+    .populate('movie')
+    .then((lichChieu) => {
+        console.log(lichChieu.movie);
+      res.status(200).json(lichChieu);
     })
     .catch((err) => res.status(500).json(err));
 }
